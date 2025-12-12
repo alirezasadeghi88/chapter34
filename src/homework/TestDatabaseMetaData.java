@@ -10,7 +10,11 @@ public class TestDatabaseMetaData {
         Class.forName("org.postgresql.Driver");
         System.out.println("Driver loaded");
 
-        Connection connection = DriverManager.getMetaData();
+        Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/javabook",
+                "postgres", "postgres");
+        System.out.println("Database connected");
+
+        DatabaseMetaData dbMetaData = connection.getMetaData();
         System.out.println("database URL: " + dbMetaData.getURL());
         System.out.println("database username: " +
                 dbMetaData.getUserName());
@@ -23,7 +27,17 @@ public class TestDatabaseMetaData {
         System.out.println("JDBC driver version: " +
                 dbMetaData.getDriverVersion());
         System.out.println("JDBC driver major version: " +
-                );
+                dbMetaData.getDriverMajorVersion());
+        System.out.println("JDBC driver minor version: " +
+                dbMetaData.getDriverMinorVersion());
+        System.out.println("Max number of connections: " +
+                dbMetaData.getConnection());
+        System.out.println("MaxTableNameLength: " +
+                dbMetaData.getMaxTableNameLength());
+        System.out.println("MaxColumnsInTable: " +
+                dbMetaData.getMaxColumnsInTable());
+
+        connection.close();
 
     }
 }
