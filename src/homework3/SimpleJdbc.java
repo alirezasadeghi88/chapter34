@@ -19,5 +19,10 @@ public class SimpleJdbc {
                 ("select firstName, mi, lastName from Student where lastName "
                      + " = 'Smith'");
 
+        while (resultSet.next())
+            System.out.println(resultSet.getString(1) + "\t" +
+                    resultSet.getString(2) + "\t" + resultSet.getString(3));
+
+        connection.close();
     }
 }
