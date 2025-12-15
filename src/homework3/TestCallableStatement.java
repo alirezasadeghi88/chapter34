@@ -23,6 +23,9 @@ public class TestCallableStatement {
         callableStatement.registerOutParameter(1, Types.INTEGER);
         callableStatement.execute();
 
-
+        if (callableStatement.getInt(1) >= 1)
+            System.out.println(firstName + " " + lastName +" is in the database");
+        else
+            System.out.println(firstName + " " + lastName + " is not in the database");
     }
 }
