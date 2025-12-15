@@ -18,5 +18,11 @@ public class TestCallableStatement {
         System.out.print("Enter student's last name: ");
         String lastName = input.nextLine();
 
+        callableStatement.setString(2, firstName);
+        callableStatement.setString(3, lastName);
+        callableStatement.registerOutParameter(1, Types.INTEGER);
+        callableStatement.execute();
+
+
     }
 }
