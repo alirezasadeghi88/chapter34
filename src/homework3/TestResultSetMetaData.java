@@ -1,8 +1,6 @@
 package homework3;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class TestResultSetMetaData {
     public static void main(String[] args)
@@ -15,6 +13,9 @@ public class TestResultSetMetaData {
                 ("jdbc:postgresql://localhost:5432/javabook2","postges","postgres");
         System.out.println("Database connected");
 
+        Statement statement = connection.createStatement();
 
+        ResultSet resultSet = statement.executeQuery
+                ("select * from Student");
     }
 }
